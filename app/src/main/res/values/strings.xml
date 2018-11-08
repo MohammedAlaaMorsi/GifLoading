@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Gif Loading</string>
+    <string name="show_loading">Show Loading</string>
+    <string name="hide_loading">Hide Loading</string>
+    <string name="facebook_loading">facebook loading</string>
+    <string name="custom_loading">progress loading</string>
+</resources>
