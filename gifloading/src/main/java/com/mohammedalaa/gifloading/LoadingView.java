@@ -1,55 +1,79 @@
 package com.mohammedalaa.gifloading;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.graphics.drawable.ColorDrawable;
+import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 
-public class LoadingView extends Dialog {
+public class LoadingView extends LinearLayout {
 
 
-    private static LoadingView mInstance;
-
-    public LoadingView(Context context, int resourceId) {
+    private Context context;
+    public LoadingView(Context context, int resourceId, int message) {
         super(context);
-        initDialog(resourceId, context);
-
+        initializeView(resourceId, context, message);
     }
 
 
-    public static synchronized LoadingView getInstance(Context context, int resourceId) {
-        if (mInstance == null) {
-            mInstance = new LoadingView(context, resourceId);
-        }
-        return mInstance;
+    public LoadingView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        initializeView(attrs.getAttributeResourceValue("http://schemas.android.com/apk/res-auto", "src", 0), context, attrs.getAttributeResourceValue("http://schemas.android.com/apk/res-auto", "message", R.string.loading));
+
+    }
+
+    public LoadingView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        initializeView(attrs.getAttributeResourceValue("http://schemas.android.com/apk/res-auto", "src", 0), context, attrs.getAttributeResourceValue("http://schemas.android.com/apk/res-auto", "message", R.string.loading));
     }
 
 
-    private void initDialog(int resourceId, Context context) {
-        setCanceledOnTouchOutside(false);
-        if (mInstance != null) {
-            setContentView(GifView.getInstance(context, resourceId));
-        } else {
-            setContentView(new GifView(context, resourceId));
-        }
-        setCanceledOnTouchOutside(false);
+    private void initializeView(int resourceId, Context context, int message) {
+        this.context = context;
 
-        getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-        getWindow().setDimAmount(0);
+        LinearLayout.LayoutParams params =
+                new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        this.setLayoutParams(params);
+        this.setBackgroundColor(context.getResources().getColor(android.R.color.holo_red_dark));
+        this.setOrientation(LinearLayout.VERTICAL);
+        this.setGravity(Gravity.CENTER);
+        this.addView(new GifView(context,resourceId));
+        enableViewInteraction();
     }
 
+    private void disableViewInteraction() {
+        getActivity(context).getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+    }
+
+    private void enableViewInteraction() {
+        getActivity(context).getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+    }
+
+    public static Activity getActivity(Context context) {
+        if (context == null) return null;
+        if (context instanceof Activity) return (Activity) context;
+        if (context instanceof ContextWrapper)
+            return getActivity(((ContextWrapper) context).getBaseContext());
+        return null;
+    }
 
     public void setOnBackButtonPressedDismiss(final Boolean dismiss) {
-        this.setOnKeyListener(new Dialog.OnKeyListener() {
-
+        this.setOnKeyListener(new OnKeyListener() {
             @Override
-            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (keyCode == android.view.KeyEvent.KEYCODE_BACK) {
                     if (dismiss) {
-                        dialog.dismiss();
+                        hideLoading();
                     }
                 }
                 return true;
@@ -58,11 +82,13 @@ public class LoadingView extends Dialog {
     }
 
     public void showLoading() {
-        this.show();
+        this.setVisibility(VISIBLE);
+        disableViewInteraction();
     }
 
     public void hideLoading() {
-        this.dismiss();
-    }
+        this.setVisibility(GONE);
+        enableViewInteraction();
 
+    }
 }

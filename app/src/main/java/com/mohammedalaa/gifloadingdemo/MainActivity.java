@@ -23,12 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btnShow=findViewById(R.id.btn_show);
-        // use this if your loading view will not change across app screens
-        //loadingView = LoadingView.getInstance(this,R.drawable.facebook_loading);
-
-        loadingView = new LoadingView(this,R.drawable.facebook_loading);
-
-
+        loadingView=(LoadingView) findViewById(R.id.loading_view);
         loadingView.setOnBackButtonPressedDismiss(false);
     }
 
@@ -40,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
         startTimer();
 
     }
-
-
 
 
     public void startTimer() {
@@ -73,21 +66,5 @@ public class MainActivity extends AppCompatActivity {
         timer.scheduleAtFixedRate(timerTask, 0, 1000);
     }
 
-    public void onRadioButtonClicked(View view) {
-            // Is the button now checked?
-            boolean checked = ((RadioButton) view).isChecked();
-
-            // Check which radio button was clicked
-            switch(view.getId()) {
-                case R.id.radio_facebook:
-                    if (checked)
-                        loadingView =new LoadingView(this,R.drawable.facebook_loading);
-                    break;
-                case R.id.radio_progress:
-                    if (checked)
-                        loadingView = new LoadingView(this,R.drawable.progress_loading);
-                        break;
-            }
-        }
 
 }
