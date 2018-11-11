@@ -2,15 +2,20 @@ package com.mohammedalaa.gifloadingdemo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.mohammedalaa.gifloading.LoadingView;
 
 import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import static android.content.ContentValues.TAG;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,8 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btnShow=findViewById(R.id.btn_show);
-        loadingView=(LoadingView) findViewById(R.id.loading_view);
-        loadingView.setOnBackButtonPressedDismiss(false);
+        loadingView= (LoadingView) findViewById(R.id.loading_view);
     }
 
 
@@ -67,4 +71,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+
+
+
+
+    public void showToast(View view) {
+        Toast.makeText(this,"Welcome",Toast.LENGTH_SHORT).show();
+    }
 }

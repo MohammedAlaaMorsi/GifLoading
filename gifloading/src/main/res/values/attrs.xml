@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="GifView">
-        <attr name="src_image" format="reference"/>
-    </declare-styleable>
-
     <declare-styleable name="LoadingView">
         <attr name="src" format="reference"/>
         <attr name="message" format="reference"/>
+        <attr name="text_color" format="reference"/>
+        <attr name="android:layout_width"  format="reference"/>
+        <attr name="android:layout_height" format="reference"/>
     </declare-styleable>
 
 </resources>
