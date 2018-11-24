@@ -2,11 +2,8 @@ package com.mohammedalaa.gifloadingdemo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.mohammedalaa.gifloading.LoadingView;
@@ -15,14 +12,12 @@ import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static android.content.ContentValues.TAG;
-
 public class MainActivity extends AppCompatActivity {
 
     LoadingView loadingView;
     Timer timer;
     Button btnShow;
-    private int time = 15;
+    private int time = 7;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                             btnShow.setText(R.string.show_loading);
                             btnShow.setEnabled(true);
                             loadingView.hideLoading();
-                            time=15;
+                            time=7;
                             timer.cancel();
                             timer.purge();
 

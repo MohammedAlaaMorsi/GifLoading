@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:components="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,17 +10,19 @@
 
     <com.mohammedalaa.gifloading.LoadingView
         android:id="@+id/loading_view"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="500dp"
+        android:layout_height="800dp"
         android:layout_marginBottom="8dp"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        components:message="@string/loading"
-        components:src="@drawable/loading_spinner"
-        components:text_color="@color/colorAccent" />
+        app:message="@string/loading"
+        app:text_size="@dimen/text_size"
+        app:block_while_loading="true"
+        app:src="@drawable/facebook_loading"
+        app:text_color="@color/colorAccent" />
 
     <Button
         android:id="@+id/btn_show"

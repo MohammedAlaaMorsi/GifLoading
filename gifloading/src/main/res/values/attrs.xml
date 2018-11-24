@@ -4,8 +4,10 @@
         <attr name="src" format="reference"/>
         <attr name="message" format="reference"/>
         <attr name="text_color" format="reference"/>
+        <attr name="text_size"  format="dimension"/>
         <attr name="android:layout_width"  format="reference"/>
         <attr name="android:layout_height" format="reference"/>
+        <attr name="block_while_loading" format="boolean"/>
     </declare-styleable>
 
 </resources>
