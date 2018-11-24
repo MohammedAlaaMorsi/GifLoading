@@ -25,7 +25,7 @@ Include the library as a local library project or add the dependency in your bui
 
 ```groovy
 dependencies {
-    implementation 'com.github.Mohammed-Alaa:GifLoading:1.0.0'
+    implementation 'com.github.Mohammed-Alaa:GifLoading:1.0.1'
 }
 ```	
 
