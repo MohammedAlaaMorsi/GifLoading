@@ -25,10 +25,42 @@ Include the library as a local library project or add the dependency in your bui
 
 ```groovy
 dependencies {
-    implementation 'com.github.Mohammed-Alaa:GifLoading:1.0.0'
+    implementation 'com.github.Mohammed-Alaa:GifLoading:1.0.1'
 }
 ```	
-  
+
+### Step 3
+
+Add the following xml to your layout file.
+
+```xml
+<com.mohammedalaa.gifloading.LoadingView
+        android:id="@+id/loading_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:message="@string/your_message"
+        app:text_size="@dimen/your_text_size"
+        app:block_while_loading="true"
+        app:src="@drawable/your_gif"
+        app:text_color="@color/your_color" />
+```
+
+### Step 4
+
+Reference the View in Java code.
+
+```java
+       LoadingView loadingView= (LoadingView) findViewById(R.id.loading_view);
+```
+Show loading
+```java
+       loadingView.showLoading();
+```
+Hide loading
+```java
+       loadingView.hideLoading();
+```
   ![](gifloading.gif)
   
   

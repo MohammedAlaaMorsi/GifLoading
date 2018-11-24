@@ -4,8 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/content_main"
     tools:context=".MainActivity">
 
+
+    <com.mohammedalaa.gifloading.LoadingView
+        android:id="@+id/loading_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:message="@string/loading"
+        app:text_size="@dimen/text_size"
+        app:block_while_loading="true"
+        app:src="@drawable/facebook_loading"
+        app:text_color="@color/colorAccent" />
 
     <Button
         android:id="@+id/btn_show"
@@ -32,7 +48,8 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.77" />
 
-    <RadioGroup
+    <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -40,21 +57,11 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:onClick="showToast"
+        android:text="Toast"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <RadioButton android:id="@+id/radio_facebook"
-            android:checked="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/facebook_loading"
-            android:onClick="onRadioButtonClicked"/>
-        <RadioButton android:id="@+id/radio_progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/custom_loading"
-            android:onClick="onRadioButtonClicked"/>
 
-    </RadioGroup>
 </android.support.constraint.ConstraintLayout>
