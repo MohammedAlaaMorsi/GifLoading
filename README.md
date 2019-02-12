@@ -2,7 +2,7 @@
 Gif images loading indicator
 [![](https://jitpack.io/v/Mohammed-Alaa/GifLoading.svg)](https://jitpack.io/#Mohammed-Alaa/GifLoading)
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)  
-
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-GifLoading-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/7512)
 ## Usage
 
 **For a working implementation of this project see the `app/` folder.**
