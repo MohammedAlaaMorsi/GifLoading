@@ -25,7 +25,7 @@ Include the library as a local library project or add the dependency in your bui
 
 ```groovy
 dependencies {
-    implementation 'com.github.Mohammed-Alaa:GifLoading:1.0.1'
+    implementation 'com.github.Mohammed-Alaa:GifLoading:1.0.2'
 }
 ```	
 
@@ -42,7 +42,7 @@ Add the following xml to your layout file.
         app:message="@string/your_message"
         app:text_size="@dimen/your_text_size"
         app:block_while_loading="true"
-        app:src="@drawable/your_gif"
+        app:srcImg="@drawable/your_gif"
         app:text_color="@color/your_color" />
 ```
 

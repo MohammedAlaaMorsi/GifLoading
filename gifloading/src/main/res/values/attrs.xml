@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="LoadingView">
-        <attr name="src" format="reference"/>
+        <attr name="srcImg" format="reference"/>
         <attr name="message" format="reference"/>
         <attr name="text_color" format="reference"/>
         <attr name="text_size"  format="dimension"/>

@@ -25,7 +25,7 @@ public class LoadingView extends LinearLayout {
                 context, attrs.getAttributeResourceValue("http://schemas.android.com/apk/res-auto", "message", -1),
                 attrs.getAttributeResourceValue("http://schemas.android.com/apk/res-auto", "text_color", R.color.black),
                 attrs.getAttributeBooleanValue("http://schemas.android.com/apk/res-auto", "block_while_loading", false),
-                attrs.getAttributeResourceValue("http://schemas.android.com/apk/res-auto", "src", R.drawable.loading_spinner),
+                attrs.getAttributeResourceValue("http://schemas.android.com/apk/res-auto", "srcImg", R.drawable.loading_spinner),
                 attrs
 
         );
@@ -40,7 +40,7 @@ public class LoadingView extends LinearLayout {
                 context, attrs.getAttributeResourceValue("http://schemas.android.com/apk/res-auto", "message", -1),
                 attrs.getAttributeResourceValue("http://schemas.android.com/apk/res-auto", "text_color", R.color.black),
                 attrs.getAttributeBooleanValue("http://schemas.android.com/apk/res-auto", "block_while_loading", false),
-                attrs.getAttributeResourceValue("http://schemas.android.com/apk/res-auto", "src", R.drawable.loading_spinner),
+                attrs.getAttributeResourceValue("http://schemas.android.com/apk/res-auto", "srcImg", R.drawable.loading_spinner),
                 attrs
         );
     }

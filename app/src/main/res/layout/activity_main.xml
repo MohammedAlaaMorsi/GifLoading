@@ -20,7 +20,7 @@
         app:message="@string/loading"
         app:text_size="@dimen/text_size"
         app:block_while_loading="true"
-        app:src="@drawable/facebook_loading"
+        app:srcImg="@drawable/facebook_loading"
         app:text_color="@color/colorAccent" />
 
     <Button
